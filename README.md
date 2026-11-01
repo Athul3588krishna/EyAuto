@@ -6,6 +6,8 @@
 [![Node.js](https://img.shields.io/badge/Backend-Node.js%20%26%20Express-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![OpenStreetMap](https://img.shields.io/badge/Maps-OpenStreetMap%20%26%20Leaflet-7EBC6F?logo=openstreetmap&logoColor=white)](https://www.openstreetmap.org/)
 [![Tailwind CSS](https://img.shields.io/badge/UI-Tailwind%20CSS-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![Academic Project](https://img.shields.io/badge/Academic%20Project-B.Sc.%20Computer%20Science-blue?logo=academia)](https://github.com/)
+[![Institution](https://img.shields.io/badge/College-KRS%20Sree%20Narayana%20College-orange)](https://github.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
@@ -13,6 +15,8 @@
 ## 📖 About EyAuto (പദ്ധതിയെക്കുറിച്ച്)
 
 Commercial ride-hailing aggregators are often unsuited for regional semi-urban towns in Kerala due to exorbitant map licensing costs, lack of local auto stand coordination, and language barriers.
+
+Originally conceptualized and developed as a **Final Year B.Sc. Computer Science Academic Project** at **KRS Sree Narayana College, Valanchery**, **EyAuto** was born out of a real-world local necessity: empowering local auto-rickshaw drivers and daily commuters with an accessible, technology-driven hailing platform.
 
 **EyAuto 1.0** is purpose-built for **Valanchery (വളാഞ്ചേരി), Malappuram**:
 - **100% Free & Open-Source Maps**: Completely free of Google Maps API dependencies and costs, using **OpenStreetMap**, **Leaflet**, and **OSRM**.
@@ -262,6 +266,20 @@ npm run build:client
 - [ ] **Document Upload**: Cloudinary / S3 integration for driver RC book & license photos.
 - [ ] **PWA Support**: Progressive Web App manifest for installing directly to Android/iOS home screens.
 - [ ] **Direct SMS Gateway**: Fast2SMS / Twilio integration for automated SMS OTPs.
+
+---
+
+## 🎓 Academic Background & Project Origin (പദ്ധതി ചരിത്രം)
+
+This project was originally envisioned, designed, and developed as a **Final Year Project** for the **B.Sc. Computer Science** curriculum at **KRS Sree Narayana College, Valanchery** (Malappuram, Kerala).
+
+| Detail | Description |
+| :--- | :--- |
+| **Academic Programme** | Bachelor of Science in Computer Science (B.Sc. CS) |
+| **Institution** | **KRS Sree Narayana College, Valanchery** |
+| **Location** | Valanchery, Malappuram District, Kerala, India |
+| **Domain** | Full-Stack Web Development, Hyperlocal Transit & Geospatial Systems |
+| **Evolution** | Conceived as an academic capstone to resolve local transit hurdles in Valanchery, **EyAuto 1.0** has been modernized into a full-fledged, production-ready solution featuring OpenStreetMap, real-time PIN validation, UPI payments, and an Admin control suite.
 
 ---
 
