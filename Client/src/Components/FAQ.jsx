@@ -1,13 +1,29 @@
-import  { useState } from "react";
+import { useState } from "react";
 
-const faqs = [
-  { question: "Can I drive with ValanPulse in my city?", answer: "Yes, ValanPulse operates in various cities. Check the availability in your location on the ValanPulse website." },
-  { question: "What are the requirements to drive with ValanPulse?", answer: "You need a valid driver’s license, a qualifying vehicle, and to meet the age requirement for your city." },
-  { question: "Is the ValanPulse platform safe?", answer: "ValanPulse implements safety measures like GPS tracking, driver screenings, and a support team to ensure safety." },
-  { question: "Do I need my own car?", answer: "Not necessarily. In some cities, you can rent a car through ValanPulse’s partner programs." },
-];
+export default function FAQ() {
+  const faqs = [
+    {
+      question: "Can I book an auto rickshaw anywhere in Valanchery?",
+      answer:
+        "Yes, EyAuto covers all major areas in and around Valanchery, including the bus stand, railway routes, clinics, colleges, and neighboring towns like Kottakkal and Kuttippuram.",
+    },
+    {
+      question: "What are the requirements to drive with EyAuto?",
+      answer:
+        "You need a valid commercial or private driving license, an auto rickshaw or qualifying vehicle, and vehicle registration documents.",
+    },
+    {
+      question: "How does fare calculation work?",
+      answer:
+        "Fares are calculated based on transparent government meter rates and distance estimated via OpenStreetMap routing.",
+    },
+    {
+      question: "Is OpenStreetMap tracking live and free?",
+      answer:
+        "Yes, EyAuto uses OpenStreetMap and Leaflet to provide real-time route estimates and map views with zero proprietary lock-in.",
+    },
+  ];
 
-const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggleFAQ = (index) => {
@@ -15,28 +31,37 @@ const FAQ = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-4">
-      <h2 className="text-2xl font-bold  mb-6">Frequently Asked Questions</h2>
+    <div className="max-w-2xl mx-auto p-6 my-10">
+      <h2 className="text-2xl font-extrabold text-center mb-6 text-gray-900">
+        Frequently Asked Questions
+      </h2>
       <div className="space-y-4">
         {faqs.map((faq, index) => (
-          <div key={index} className="border-b border-gray-200 pb-4">
+          <div
+            key={index}
+            className="border border-gray-200 rounded-xl p-4 bg-white shadow-sm"
+          >
             <button
               onClick={() => toggleFAQ(index)}
-              className="w-full text-left text-lg font-medium  focus:outline-none flex justify-between items-center"
+              className="w-full text-left text-base font-bold text-gray-800 focus:outline-none flex justify-between items-center"
             >
-              {faq.question}
-              <span className={`transition-transform ${openIndex === index ? "rotate-180" : ""}`}>
+              <span>{faq.question}</span>
+              <span
+                className={`transition-transform duration-200 text-yellow-500 font-bold ${
+                  openIndex === index ? "rotate-180" : ""
+                }`}
+              >
                 ▼
               </span>
             </button>
             {openIndex === index && (
-              <p className="mt-2 ">{faq.answer}</p>
+              <p className="mt-3 text-sm text-gray-600 leading-relaxed border-t pt-3 border-gray-100">
+                {faq.answer}
+              </p>
             )}
           </div>
         ))}
       </div>
     </div>
   );
-};
-
-export default FAQ;
+}

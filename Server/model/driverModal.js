@@ -1,43 +1,48 @@
 import mongoose from "mongoose";
 
-const drivrSchema = new mongoose.Schema({
-
+const driverSchema = new mongoose.Schema({
   driverName: {
     type: String,
     required: true,
     trim: true,
   },
-  
   vehicle: {
-    type: String, // References the User model
+    type: String,
     required: true,
+    trim: true,
   },
   drivingLicense: {
-    type:String, // References the User model
-    required: true,
-    trim: true,
-  },
-adhaarCard: {
     type: String,
-    // required: true,
+    required: true,
+    unique: true,
     trim: true,
   },
-
+  adhaarCard: {
+    type: String,
+    trim: true,
+  },
   panCard: {
     type: String,
-    // required: true,
     trim: true,
   },
- 
   latitude: {
-    type: String, // References the User model
-    // required: true,
+    type: Number,
   },
-
   longitude: {
-    type: String, // References the User model
-    // required: true,
+    type: Number,
+  },
+  isOnline: {
+    type: Boolean,
+    default: true,
+  },
+  rating: {
+    type: Number,
+    default: 4.8,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
   },
 });
 
-export default mongoose.model("Driver", drivrSchema);
+export default mongoose.model("Driver", driverSchema);

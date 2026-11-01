@@ -1,26 +1,33 @@
-
+import { Link } from "react-router-dom";
 
 const Rentcar = () => {
   return (
-    <div className="container lg:mx-28">
-    <div className="rentcar my-6 mx-5 lg:mx-auto flex flex-col-reverse lg:flex-row gap-6">
-        <img className="h-[280px] w-[280px] lg:h-[500px] lg:w-[500px] z-10 transform hover:scale-105 transition-transform duration-300" src="../images/rent.jpg" alt="" />
-        <div className="drive-text lg:my-32 lg:mx-14">
-            <h1 className="text-4xl">Drive when you</h1>
-            <h1 className="text-4xl">want, make what</h1>
-            <h1 className="text-4xl">you need</h1>
-            <p className="my-6">Make money on your schedule with deliveries or rides-or <br />
-            both. YOu can use your own car or choose a rental <br />
-            through Uber.</p>
-            <div className="flex my-3">
-            <button       className=" bg-yellow-300 text-black border-gray-900  hover:bg-gray-900 hover:text-white font-semibold px-5 py-3 text-lg rounded-full"
-           >Get Started</button>
-            <p className="my-3 mx-6">Already have an account ?</p>
-            </div>
+    <div className="container mx-auto px-4 lg:px-10">
+      <div className="rentcar my-12 flex flex-col-reverse lg:flex-row gap-8 items-center justify-center">
+        <img
+          className="rounded-2xl max-w-md w-full shadow-lg z-10 transform hover:scale-105 transition-transform duration-300"
+          src="/images/rent.jpg"
+          alt="Rent an Auto"
+        />
+        <div className="drive-text max-w-lg">
+          <h2 className="text-3xl lg:text-4xl font-extrabold text-gray-900 leading-tight">
+            Rent or Drive with Fleet Partners
+          </h2>
+          <p className="my-5 text-gray-600 text-base">
+            Don&apos;t own an auto? Connect with verified fleet partners in Valanchery. Start driving and earning on your own terms with EyAuto.
+          </p>
+          <div className="flex flex-wrap items-center gap-4 my-3">
+            <Link
+              to="/to-driver"
+              className="bg-yellow-400 text-black hover:bg-black hover:text-white font-bold px-6 py-3 text-base rounded-full shadow-md transition duration-200"
+            >
+              Sign Up as Driver
+            </Link>
+          </div>
         </div>
+      </div>
     </div>
-   </div>
-  )
-}
+  );
+};
 
-export default Rentcar
+export default Rentcar;

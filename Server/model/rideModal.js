@@ -4,7 +4,6 @@ const rideSchema = new mongoose.Schema({
   userID: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
-    required: true,
   },
   startFrom: {
     type: String,
@@ -16,9 +15,17 @@ const rideSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  startCoordinates: {
+    lat: Number,
+    lng: Number,
+  },
+  endCoordinates: {
+    lat: Number,
+    lng: Number,
+  },
   status: {
     type: String,
-    enum: ["Pending", "Ongoing", "Completed", "Cancelled"],
+    enum: ["Pending", "Ongoing", "Completed", "Cancelled", "Accepted"],
     default: "Pending",
   },
   createdAt: {

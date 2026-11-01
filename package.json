@@ -1,0 +1,24 @@
+{
+  "name": "eyauto",
+  "version": "1.0.0",
+  "description": "EyAuto - On-Demand Auto Rickshaw Booking Platform for Valanchery",
+  "private": true,
+  "scripts": {
+    "start": "node Server/index.js",
+    "dev:server": "node Server/index.js",
+    "dev:client": "npm --prefix Client run dev",
+    "build:client": "npm --prefix Client run build",
+    "lint:client": "npm --prefix Client run lint",
+    "install:all": "npm --prefix Server install && npm --prefix Client install"
+  },
+  "keywords": [
+    "autorickshaw",
+    "ride-booking",
+    "openstreetmap",
+    "leaflet",
+    "valanchery",
+    "eyauto"
+  ],
+  "author": "EyAuto Team",
+  "license": "ISC"
+}

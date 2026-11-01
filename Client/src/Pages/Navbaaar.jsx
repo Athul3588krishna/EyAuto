@@ -1,37 +1,25 @@
-
+import { Link } from "react-router-dom";
 
 const Navbaaar = () => {
   return (
-    <div className="flex justify-between items-center px-6 py-4 bg-white shadow-md">
-      {/* Uber Logo */}
-     <div className="px-10">
-     <span className="font-bold animate-pulse text-xl"><span className="text-black font-bold text-2xl">V</span >alan<span className="text-yellow-500"><span className="font-bold text-2xl">P</span>ulse</span></span>
-            
-     </div>
+    <div className="flex justify-between items-center px-6 py-4 bg-white shadow-sm border-b border-gray-200">
+      <Link to="/" className="font-extrabold text-xl">
+        Ey<span className="text-yellow-500">Auto</span>
+        <span className="text-xs bg-yellow-100 text-yellow-800 font-bold px-2 py-0.5 rounded ml-2">
+          Driver Portal
+        </span>
+      </Link>
 
-      {/* Navigation Links */}
-      <div className="flex items-center space-x-8">
-        {/* Ride */}
-        <div className="flex items-center space-x-2 cursor-pointer">
-          <span className="text-lg">🚗</span> {/* Replace with an icon */}
-          <span className="text-gray-700 font-medium">Ride</span>
-        </div>
-
-        {/* Rentals */}
-        <div className="flex items-center space-x-2 cursor-pointer">
-          <span className="text-lg">🕒</span> {/* Replace with an icon */}
-          <span className="text-gray-700 font-medium">Rentals</span>
-        </div>
-
-        {/* My Trips */}
-        <div className="flex items-center space-x-2 cursor-pointer">
-          <span className="text-gray-700 font-medium">My trips</span>
-        </div>
-
-        {/* Profile Icon */}
-        <div className="w-8 h-8 rounded-full bg-gray-200 flex justify-center items-center cursor-pointer">
-          <span className="text-lg">👤</span> {/* Replace with profile icon */}
-        </div>
+      <div className="flex items-center space-x-6 text-sm font-semibold">
+        <Link to="/" className="text-gray-600 hover:text-black">
+          Home
+        </Link>
+        <Link to="/to-chooseride" className="text-gray-600 hover:text-black">
+          Book Ride
+        </Link>
+        <Link to="/to-dashboard" className="text-yellow-600 hover:text-yellow-700">
+          Driver Dashboard
+        </Link>
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
-const withMT = require("@material-tailwind/react/utils/withMT");
+import withMT from "@material-tailwind/react/utils/withMT.js";
+
 export default withMT({
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -9,8 +10,8 @@ export default withMT({
       },
       keyframes: {
         skeleton: {
-          "0%, 100%": { backgroundColor: "rgba(209, 213, 219, 1)" }, // Lighter gray
-          "50%": { backgroundColor: "rgba(229, 231, 235, 1)" }, // Darker gray
+          "0%, 100%": { backgroundColor: "rgba(209, 213, 219, 1)" },
+          "50%": { backgroundColor: "rgba(229, 231, 235, 1)" },
           typing: "typing 2s steps(20) infinite alternate, blink .7s infinite",
         },
         typing: {

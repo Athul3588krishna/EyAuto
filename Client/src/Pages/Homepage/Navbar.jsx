@@ -1,138 +1,173 @@
-import { UpdateFollower } from "react-mouse-follower";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import { Shield, Globe } from "lucide-react";
+import { useLanguage } from "../../context/LanguageContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { lang, toggleLanguage, t } = useLanguage();
 
-  // Framer Motion animation variants
-  const variants = {
-    open: { opacity: 1, x: 0, transition: { duration: 0.5 } },
-    closed: { opacity: 0, x: "-100%", transition: { duration: 0.5 } },
-  };
   return (
-    <div className="lg:mx-12 lg:my-8 m">
-      <UpdateFollower
-        mouseOptions={{
-          backgroundColor: "yellow",
-          zIndex: "999",
-          followSpeed: "1.5",
-        }}
-      >
-        <motion.nav
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 3 }}
-          transition={{ duration: 3, delay: 0.5 }}
-          className="bg-white text-black"
-        >
-          <div className="container  px-4">
-            <div className="flex items-center justify-between h-16">
-              <div className="flex items-center space-x-8">
-                <span className="font-bold animate-pulse text-xl">
-                  <span className="text-black font-bold text-2xl">V</span>alan
-                  <span className="text-yellow-500">
-                    <span className="font-bold text-2xl">P</span>ulse
-                  </span>
+    <div className="lg:mx-12 lg:my-6">
+      <nav className="bg-white text-black py-2">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center space-x-8">
+              <Link to="/" className="font-extrabold text-2xl flex items-center gap-1">
+                <span>Ey</span>
+                <span className="text-yellow-500">Auto</span>
+                <span className="text-xs bg-black text-yellow-400 font-bold px-2 py-0.5 rounded ml-1">
+                  VALANCHERY
                 </span>
-                <div className="hidden md:block space-x-4">
-                  <Link to="/" className="hover:opacity-75">
-                    Home
-                  </Link>
-                  <Link to="#" className="hover:opacity-75">
-                    Ride
-                  </Link>
-                  <Link to={"/to-drivee"} className="hover:opacity-75">
-                    Drive
-                  </Link>
-                  <Link to="#" className="hover:opacity-75">
-                    Contact
-                  </Link>
-                </div>
-              </div>
-              <div className="hidden md:flex items-center space-x-4">
-                <button className="hover:opacity-75">EN</button>
-                <button className=" hover:opacity-75">Help</button>
-                <Link to={"login"} className="hover:opacity-75">
-                  Log in
+              </Link>
+              <div className="hidden md:flex space-x-6 text-sm font-semibold text-gray-700">
+                <Link to="/" className="hover:text-yellow-600 transition">
+                  {t("home")}
                 </Link>
-                <Link
-                  to={"signup"}
-                  className="sm:w-[150px] sm:px-10  bg-yellow-300 text-black px-4 py-2 rounded-full hover:bg-gray-100"
-                >
-                  Sign up
+                <Link to="/to-chooseride" className="hover:text-yellow-600 transition">
+                  {t("bookRide")}
                 </Link>
-              </div>
-              <div className="block md:hidden">
-                {/* <button>Doo</button> */}
-                <button
-                  onClick={() => setIsOpen(!isOpen)}
-                  className="flex items-center justify-center w-10 h-10 border border-gray-300 rounded-full"
-                >
-                  <AnimatePresence mode="wait">
-                    {isOpen ? (
-                      <motion.div
-                        key="close"
-                        initial={{ opacity: 0, rotate: -90, scale: 0.8 }}
-                        animate={{ opacity: 1, rotate: 0, scale: 1 }}
-                        exit={{ opacity: 0, rotate: 90, scale: 0.8 }}
-                        transition={{ duration: 0.3 }}
-                        className="absolute"
-                      >
-                        <CloseIcon />
-                      </motion.div>
-                    ) : (
-                      <motion.div
-                        key="hamburger"
-                        initial={{ opacity: 0, rotate: 90, scale: 0.8 }}
-                        animate={{ opacity: 1, rotate: 0, scale: 1 }}
-                        exit={{ opacity: 0, rotate: -90, scale: 0.8 }}
-                        transition={{ duration: 0.3 }}
-                        className="absolute"
-                      >
-                        <Hamburger />
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </button>
+                <Link to="/to-driver" className="hover:text-yellow-600 transition">
+                  {t("driveWithUs")}
+                </Link>
+                <Link to="/to-dashboard" className="hover:text-yellow-600 transition">
+                  {t("driverDashboard")}
+                </Link>
               </div>
             </div>
-          </div>
-        </motion.nav>
 
-        {/* <motion.div
-          initial="closed"
-          animate={isOpen ? "open" : "closed"}
-          variants={{
-            open: { y: 0, opacity: 1, transition: { duration: 0.5 } },
-            closed: { y: "-100%", opacity: 0, transition: { duration: 0.5 } },
-          }}
-          className="absolute top-16 left-0 w-full bg-gray-800 text-white z-10 flex flex-col items-center py-8 md:hidden"
-        >
-          <ul className="space-y-4 text-lg">
-            <li>
-              <a href="#home" onClick={() => setIsOpen(false)}>
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#about" onClick={() => setIsOpen(false)}>
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#services" onClick={() => setIsOpen(false)}>
-                Services
-              </a>
-            </li>
-            <li>
-              <a href="#contact" onClick={() => setIsOpen(false)}>
-                Contact
-              </a>
-            </li>
-          </ul>
-        </motion.div> */}
-      </UpdateFollower>
+            <div className="hidden md:flex items-center space-x-3">
+              {/* Language Toggle Pill */}
+              <button
+                onClick={toggleLanguage}
+                className="flex items-center gap-1.5 bg-gray-100 hover:bg-yellow-100 text-gray-800 text-xs font-bold px-3 py-1.5 rounded-full border border-gray-300 transition"
+                title="Switch Language"
+              >
+                <Globe size={13} className="text-yellow-600" />
+                <span>{lang === "en" ? "മലയാളം" : "English"}</span>
+              </button>
+
+              <Link
+                to="/admin"
+                className="text-xs text-gray-500 hover:text-black font-semibold flex items-center gap-1 px-2 py-1 rounded"
+              >
+                <Shield size={14} className="text-yellow-500" />
+                <span>{t("admin")}</span>
+              </Link>
+              <Link
+                to="/login"
+                className="text-sm font-bold text-gray-800 hover:text-black px-3 py-2"
+              >
+                {t("signIn")}
+              </Link>
+              <Link
+                to="/to-chooseride"
+                className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold px-5 py-2.5 rounded-full text-sm shadow-sm transition"
+              >
+                {t("rideNow")}
+              </Link>
+            </div>
+
+            {/* Mobile menu button */}
+            <div className="flex items-center gap-2 md:hidden">
+              <button
+                onClick={toggleLanguage}
+                className="flex items-center gap-1 bg-gray-100 text-gray-800 text-xs font-bold px-2.5 py-1 rounded-full border border-gray-300"
+              >
+                <Globe size={12} className="text-yellow-600" />
+                <span>{lang === "en" ? "മല" : "EN"}</span>
+              </button>
+
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="flex items-center justify-center w-10 h-10 border border-gray-300 rounded-full"
+              >
+                <AnimatePresence mode="wait">
+                  {isOpen ? (
+                    <motion.div
+                      key="close"
+                      initial={{ opacity: 0, rotate: -90, scale: 0.8 }}
+                      animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                      exit={{ opacity: 0, rotate: 90, scale: 0.8 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <CloseIcon />
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="hamburger"
+                      initial={{ opacity: 0, rotate: 90, scale: 0.8 }}
+                      animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                      exit={{ opacity: 0, rotate: 90, scale: 0.8 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Hamburger />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile dropdown */}
+        {isOpen && (
+          <div className="md:hidden bg-white border-t border-gray-100 px-4 py-4 space-y-3 font-semibold text-sm">
+            <Link
+              to="/"
+              onClick={() => setIsOpen(false)}
+              className="block py-2 text-gray-800 hover:text-yellow-600"
+            >
+              {t("home")}
+            </Link>
+            <Link
+              to="/to-chooseride"
+              onClick={() => setIsOpen(false)}
+              className="block py-2 text-gray-800 hover:text-yellow-600"
+            >
+              {t("bookRide")}
+            </Link>
+            <Link
+              to="/to-driver"
+              onClick={() => setIsOpen(false)}
+              className="block py-2 text-gray-800 hover:text-yellow-600"
+            >
+              {t("driveWithUs")}
+            </Link>
+            <Link
+              to="/to-dashboard"
+              onClick={() => setIsOpen(false)}
+              className="block py-2 text-gray-800 hover:text-yellow-600"
+            >
+              {t("driverDashboard")}
+            </Link>
+            <Link
+              to="/admin"
+              onClick={() => setIsOpen(false)}
+              className="block py-2 text-yellow-600 font-bold"
+            >
+              Admin Control Panel
+            </Link>
+            <div className="pt-2 border-t flex flex-col gap-2">
+              <Link
+                to="/login"
+                onClick={() => setIsOpen(false)}
+                className="w-full text-center border py-2 rounded-xl"
+              >
+                {t("signIn")}
+              </Link>
+              <Link
+                to="/to-chooseride"
+                onClick={() => setIsOpen(false)}
+                className="w-full text-center bg-yellow-400 py-2 rounded-xl font-bold"
+              >
+                {t("rideNow")}
+              </Link>
+            </div>
+          </div>
+        )}
+      </nav>
     </div>
   );
 };
@@ -147,7 +182,7 @@ const Hamburger = function () {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="size-6"
+      className="w-5 h-5"
     >
       <path
         strokeLinecap="round"
@@ -166,7 +201,7 @@ const CloseIcon = function () {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="size-6"
+      className="w-5 h-5"
     >
       <path
         strokeLinecap="round"
